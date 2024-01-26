@@ -1,0 +1,20 @@
+Requirements
+python 3.9+
+Truvari v4.1 repo
+bcftools 1.18+ repo
+Usage
+Perform intra-sample merging with dragen_sv_merge.py. It expects three positional arguments of the input VCFs.
+
+usage: dragen_truvari_merge [-h] [-o OUTPUT] [--debug] STR SV CNV
+
+positional arguments:
+  STR                   str VCF file
+  SV                    sv VCF file
+  CNV                   cnv VCF file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        Output VCF file
+  --debug               Verbose logging
+Note: VCFs should be pre-processed to split multiallelic entries with bcftools norm --write-index -N -m-any
