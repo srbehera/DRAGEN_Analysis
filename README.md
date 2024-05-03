@@ -9,3 +9,7 @@ Counting basepairs
 1. `count_basepair.py` - This script counts the total impacted basepairs of all variants at the sample level. It can be run with Tuvari-4.1-dev (https://github.com/ACEnglish/truvari)
 2. `count_bp_SNV_INDEL_chr21.json` - Sample output file of the script
 3. `dragen_sv_merge.py` - script for merging STR, SV and VCF files at sample level (check the `dragen_sv_merge_notes` file  for additional information)
+
+STR benchmarking
+1. `truvari_giabtr_testing.pdf` - This document contains the detailed description of STR benchmarking analysis
+2. `Truvarizer.py` - script used in the STR analysis
