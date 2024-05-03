@@ -13,3 +13,4 @@ Counting basepairs
 STR benchmarking
 1. `truvari_giabtr_testing.pdf` - This document contains the detailed description of STR benchmarking analysis
 2. `Truvarizer.py` - script used in the STR analysis
+3. `EHVCFConverter.py` - script used to convert DRAGEN STR vcf to truvari recognizable format
