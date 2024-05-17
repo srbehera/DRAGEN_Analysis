@@ -8,7 +8,7 @@ DRAGEN callset: HG002_35x.hard-filtered.vcf.gz
 
 Steps
 -----
-1. Converts the contents of sequence data files(FASTA/FASTQ/SAM/BAM) into the RTG Sequence Data File(SDF)format.
+1. Converts the contents of sequence data files(FASTA/FASTQ/SAM/BAM) into the RTG Sequence Data File(SDF) format. The directory (<dir_path_SDF>) that contains the SDF file will be used in the vcfeval step.
 rtg format -o human_REF human_REF.fasta
 
 2. Evaluates called variants for agreement with a baseline variant (truth) set 
