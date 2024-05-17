@@ -2,6 +2,7 @@ Genomewide SNV evaluations for HG002
 ------------------------------------
 
 Tool: RTGtool v3.12.1 (https://github.com/RealTimeGenomics/rtg-tools)
+RTGtool manual: https://cdn.rawgit.com/RealTimeGenomics/rtg-tools/master/installer/resources/tools/RTGOperationsManual.pdf
 Truth set: HG002 GIAB v4.2.1 (https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz)
 High-confidence regions: GIAB v4.2.1 (https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed)
 Reference: GRCh38
@@ -9,6 +10,7 @@ DRAGEN callset: HG002_35x.hard-filtered.vcf.gz
 
 Steps
 -----
+
 1. Converts the contents of sequence data files(FASTA/FASTQ/SAM/BAM) into the RTG Sequence Data File(SDF) format. The directory (<dir_path_SDF>) that contains the SDF file will be used in the vcfeval step.
 
 rtg format -o human_REF human_REF.fasta
