@@ -64,8 +64,12 @@ Evaluation of Copy Number Variation (CNV) for HG002
 Tool: Wittyer v0.3.5.1 
 Truth Set: https://github.com/srbehera/DRAGEN_Analysis/blob/main/HG002_SVs_Tier1_v0.6.DEL.1kbp.vcf
 (we generated the truth set by extracting all DEL type SVs with length >=1000 of GIAB v0.6 SV truth set)
-Wittyer.dll -i <input_vcf> -t HG002_SVs_Tier1_v0.6.vcf.gz
- --includeBed HG002_SVs_Tier1_v0.6.bed --configFile config_wittyer.json -em SimpleCounting -o <out_file>
+Config: https://github.com/srbehera/DRAGEN_Analysis/blob/main/config_wittyer_CNV.json (to be used for --configFile parameter)
+
+Wittyer.dll -i <input_vcf> -t HG002_SVs_Tier1_v0.6.vcf.gz --includeBed HG002_SVs_Tier1_v0.6.bed --configFile <Config> -em CrossTypeAndSimpleCounting -o <out_file>
+
+Evaluation of STR (HG002)
+-------------------------
 
 
 
