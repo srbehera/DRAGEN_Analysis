@@ -75,6 +75,22 @@ The detailed steps are given here https://github.com/srbehera/DRAGEN_Analysis/bl
 The “Truvarizer.py” script that was used can be found here https://github.com/srbehera/DRAGEN_Analysis
 
 
+Evaluation with new GIAB (GRCh38_T2TQ100) benchmark
+----------------------------------------------------
+This is similar to the steps we followed for GIAB v4.2.1 benchmark set. We used the GIAB new benchmark (https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/NIST_HG002_DraftBenchmark_defrabbV0.015-20240215/GRCh38_HG2-T2TQ100-V1.0.vcf.gz) as truth set (-b)
+and the high confidence bed regions (https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/NIST_HG002_DraftBenchmark_defrabbV0.015-20240215/GRCh38_HG2-T2TQ100-V1.0_smvar.benchmark.bed)
+
+  ${rtgtool} vcfeval \
+  --ref-overlap \
+  -b GRCh38_HG2-T2TQ100-V1.0.vcf.gz \
+  -c HG002_35x.hard-filtered.vcf.gz \
+  -t ${SDF} \
+  -o RTG_HG002_new \
+  --output-mode annotate \
+  --vcf-score-field QUAL \
+  --bed-regions GRCh38_HG2-T2TQ100-V1.0_smvar.benchmark.bed
+
+
 
 
 
