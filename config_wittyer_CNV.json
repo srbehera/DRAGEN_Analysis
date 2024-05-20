@@ -1,0 +1,29 @@
+[
+  {
+    "variantType": "CopyNumberReference",
+    "binSizes": "!1,1000,5000,10000,20000,50000",
+    "bpDistance": 10000,
+    "percentDistance": 0.25,
+    "includedFilters": "PASS",
+    "excludedFilters": "",
+    "includeBed": "HG002_SVs_Tier1_v0.6.bed"
+  },
+  {
+    "variantType": "Duplication",
+    "binSizes": "!1,1000,5000,10000,20000,50000",
+    "bpDistance": 10000,
+    "percentDistance": 0.25,
+    "includedFilters": "PASS",
+    "excludedFilters": "",
+    "includeBed": "HG002_SVs_Tier1_v0.6.bed"
+  },
+  {
+    "variantType": "Deletion",
+    "binSizes": "!1,1000,5000,10000,20000,50000",
+    "bpDistance": 10000,
+    "percentDistance": 0.25,
+    "includedFilters": "PASS",
+    "excludedFilters": "",
+    "includeBed": ":wqHG002_SVs_Tier1_v0.6.bed"
+  }
+]
