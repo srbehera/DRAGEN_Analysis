@@ -61,7 +61,11 @@ The wittyer config file (used for --configFile) can be found here https://github
 
 Evaluation of Copy Number Variation (CNV) for HG002
 ---------------------------------------------------
-The wittyer tool was also used; the following command was used to generate the truth set i.e. all DEL type SVs with length >=1000 of GIAB v0.6 SV truth set
+Tool: Wittyer v0.3.5.1 
+Truth Set: https://github.com/srbehera/DRAGEN_Analysis/blob/main/HG002_SVs_Tier1_v0.6.DEL.1kbp.vcf
+(we generated the truth set by extracting all DEL type SVs with length >=1000 of GIAB v0.6 SV truth set)
+Wittyer.dll -i <input_vcf> -t HG002_SVs_Tier1_v0.6.vcf.gz
+ --includeBed HG002_SVs_Tier1_v0.6.bed --configFile config_wittyer.json -em SimpleCounting -o <out_file>
 
 
 
