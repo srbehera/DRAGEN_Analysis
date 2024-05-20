@@ -1,28 +1,73 @@
-Genomewide SNV evaluations for HG002
-------------------------------------
+SNV evaluations for HG002
+-------------------------
+
+1.Tools and Datasets
 
 Tool: RTGtool v3.12.1 (https://github.com/RealTimeGenomics/rtg-tools)
 RTGtool manual: https://cdn.rawgit.com/RealTimeGenomics/rtg-tools/master/installer/resources/tools/RTGOperationsManual.pdf
 Truth set: HG002 GIAB v4.2.1 (https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz)
 High-confidence regions: GIAB v4.2.1 (https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed)
 Reference: GRCh38
-DRAGEN callset: HG002_35x.hard-filtered.vcf.gz
+Callset: SNV VCF file of DRAGEN/GATK/DeepVariant. All the callsets are available here https://zenodo.org/uploads/10428664 and here https://zenodo.org/uploads/8350256
 
-Steps
------
+2. Evaluation Steps
 
-1. Converts the contents of sequence data files(FASTA/FASTQ/SAM/BAM) into the RTG Sequence Data File(SDF) format. The directory (<dir_path_SDF>) that contains the SDF file will be used in the vcfeval step.
+
+The following steps are followed to evaluate DRAGEN callset. 
+
+i. Converts the contents of sequence data files(FASTA/FASTQ/SAM/BAM) into the RTG Sequence Data File(SDF) format. The directory that contains the SDF file will be used in the vcfeval step.
 
 rtg format -o human_REF human_REF.fasta
 
-2. Evaluates called variants for agreement with a baseline variant (truth) set 
+ii. Evaluate called variants for agreement with a baseline variant (truth) set 
  
 rtg vcfeval \
   --ref-overlap \
   -b HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz \
-  -c HG002_35x.hard-filtered.vcf.gz \
+  -c <Callset> \
   -t <dir_path_SDF> \
-  -o RTG_DRAGEN_HG002 \
+  -o RTG_HG002 \
   --output-mode annotate \
   --vcf-score-field QUAL \
   --bed-regions HG002_GRCh38_1_22_v4.2.1_benchmark.bed
+
+Challenging Medically Relevant Gene (CMRG) SNV evaluations for HG002
+--------------------------------------------------------------------
+The above RTGtool commands can also be used for the CMRG SNV evaluations with the Truth set (-b) and the BED regions (--bed-regions) provided here https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/CMRG_v1.00/GRCh38/SmallVariant/
+
+Genomewide SNV evaluations for HG001-07 samples
+-----------------------------------------------
+The above RTGtool commands can also be used with individual callsets (-c), truth set (-b) and the BED regions (--bed-regions).
+Here are the links to download the truth and high-confidence regions for HG001-07 samples (except HG002) that need to be used for "-b" and "--bed-regions" parameters respectively for the "rtg vcfeval". 
+HG001: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/NA12878_HG001/NISTv4.2.1/GRCh38/
+HG003: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG003_NA24149_father/NISTv4.2.1/GRCh38/
+HG004: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG004_NA24143_mother/NISTv4.2.1/
+HG005: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/ChineseTrio/HG005_NA24631_son/NISTv4.2.1/
+HG006: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/ChineseTrio/HG006_NA24694_father/NISTv4.2.1/
+HG007: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/ChineseTrio/HG007_NA24695_mother/
+
+
+Evaluation of Structural Variants (SV) for HG002
+------------------------------------------------
+Tool: Wittyer v0.3.5.1 https://github.com/Illumina/witty.er
+Truth Set: GIAB v0.6 Tier1 https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NIST_SV_v0.6/HG002_SVs_Tier1_v0.6.vcf.gz
+BED region: Tier1 high-confidence regions https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NIST_SV_v0.6/HG002_SVs_Tier1_v0.6.bed
+Reference: GRCh37
+Callset: The call set VCF files of DRAGEN/Lumpy/Manta/Delly can be found here https://zenodo.org/uploads/10428664
+
+Wittyer.dll -i <Callset.vcf> -t HG002_SVs_Tier1_v0.6.vcf.gz --includeBed HG002_SVs_Tier1_v0.6.bed --configFile config_wittyer.json -em SimpleCounting -o <out_file>
+
+The wittyer config file (used for --configFile) can be found here https://github.com/Illumina/witty.er/blob/master/Ilmn.Das.App.Wittyer/Config-default.json
+
+Evaluation of Copy Number Variation (CNV) for HG002
+---------------------------------------------------
+The wittyer tool was also used; the following command was used to generate the truth set i.e. all DEL type SVs with length >=1000 of GIAB v0.6 SV truth set
+
+
+
+
+
+
+
+
+
