@@ -71,6 +71,9 @@ Wittyer.dll -i <input_vcf> -t HG002_SVs_Tier1_v0.6.vcf.gz --includeBed HG002_SVs
 Evaluation of STR (HG002)
 -------------------------
 
+The detailed steps are given here https://github.com/srbehera/DRAGEN_Analysis/blob/main/truvari_giabtr_testing.pdf
+The “Truvarizer.py” script that was used can be found here https://github.com/srbehera/DRAGEN_Analysis
+
 
 
 
